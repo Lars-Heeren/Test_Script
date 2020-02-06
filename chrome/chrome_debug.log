@@ -1,2 +1,8 @@
-[2024:16584:0205/205932.435:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
-[2024:16584:0205/205932.435:WARNING:pref_notifier_impl.cc(40)] Pref observer for browser.relaunch_notification_period found at shutdown.
+[20216:14484:0206/160913.682:ERROR:model_type_store_service_impl.cc(35)] Failed to initialize ModelTypeStore backend: Init@../../components/sync/model_impl/model_type_store_backend.cc:99: IO error: C:\Users\lars-\PycharmProjects\Test_Script\chrome\Default\Sync Data\LevelDB/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[20216:1768:0206/160915.002:WARNING:value_store_frontend.cc(45)] Reading mfehgcgbbipciphmccgaenjidiccnmng.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[20216:1768:0206/160915.019:WARNING:value_store_frontend.cc(45)] Reading ahfgeienlihckogmohjhadlkjgocpleb.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[20216:1768:0206/160915.027:WARNING:value_store_frontend.cc(45)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[20216:1768:0206/160915.059:WARNING:value_store_frontend.cc(45)] Reading aapnijgdinlhnhlmodcfapnahmbfebeb.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[20216:10536:0206/160925.241:ERROR:data_store_impl.cc(131)] Failed to open Data Reduction Proxy DB: 3
+[20216:24508:0206/161002.935:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[20216:24508:0206/161002.935:WARNING:pref_notifier_impl.cc(40)] Pref observer for browser.relaunch_notification_period found at shutdown.
