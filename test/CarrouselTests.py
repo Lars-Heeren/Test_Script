@@ -3,14 +3,12 @@ from test.TestClass import TestClass
 
 
 class CarrouselTests(TestClass):
-
-    def __init__(self, driver, name="carrousel"):
+    def __init__(self, driver, name="Carrousel"):
         super().__init__(driver, name)
-        self.result = {}
 
     def run_tests(self):
-        self.result["test_application_next_button"] = self.test_application_next_button()
-        self.result["test_application_back_button"] = self.test_application_back_button()
+        self.tests["test_application_next_button"] = self.test_application_next_button()
+        self.tests["test_application_back_button"] = self.test_application_back_button()
 
         self.print_result()
 
