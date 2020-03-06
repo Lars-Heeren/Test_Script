@@ -22,7 +22,6 @@ class CarrouselTests(TestClass):
         print(self.result)
 
     def test_application_next_button(self):
-
         img1 = self.driver.find_element_by_css_selector(".primary_project img")
 
         carrousel = self.driver.find_element_by_class_name("primary_project")
@@ -57,4 +56,3 @@ class CarrouselTests(TestClass):
         self.passit = result
 
         return result
-

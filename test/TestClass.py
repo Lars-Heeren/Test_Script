@@ -1,6 +1,6 @@
-import os
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
+
 
 class TestClass:
 
@@ -8,7 +8,6 @@ class TestClass:
         self.name = name
         self.driver = driver
         self.passit = True
-
 
     def run_tests(self):
         pass
@@ -21,7 +20,3 @@ class TestClass:
         print("\n" + self.name.upper(), "test status:", self.passit)
         if not self.passit:
             self.print_failure()
-
-
-
-

@@ -13,12 +13,11 @@ class Reader:
     def __init__(self):
 
         options = Options()
-        #options.add_argument('user-data-dir=' + CHROME_PATH)
+        # options.add_argument('user-data-dir=' + CHROME_PATH)
         print(os.path.dirname(os.path.abspath(__file__)))
 
         self.driver = webdriver.Chrome(executable_path=CHROME_PATH + CHROME_DRIVER, options=options)
         self.driver.get(APPLICATION_ADDRESS_STRING)
-
 
         try:
             self.test_application()
@@ -38,22 +37,21 @@ class Reader:
         for test in tests:
             test.run_tests()
 
+        # img1 = self.driver.find_element_by_css_selector(".primary_project img")
 
-        #img1 = self.driver.find_element_by_css_selector(".primary_project img")
+        # carrousel = self.driver.find_element_by_class_name("primary_project")
+        # hover = ActionChains(self.driver).move_to_element(carrousel)
+        # hover.perform()
 
-        #carrousel = self.driver.find_element_by_class_name("primary_project")
-        #hover = ActionChains(self.driver).move_to_element(carrousel)
-        #hover.perform()
+    # button = self.driver.find_element_by_id("next")
+    # click = ActionChains(self.driver).click(button)
+    # click.perform()
 
-       # button = self.driver.find_element_by_id("next")
-        #click = ActionChains(self.driver).click(button)
-       # click.perform()
+    # img2 = self.driver.find_element_by_css_selector(".primary_project img")
 
-        #img2 = self.driver.find_element_by_css_selector(".primary_project img")
+    # print(img1 != img2)
 
-        #print(img1 != img2)
-
-       # pass
+    # pass
 
 
 Reader()
