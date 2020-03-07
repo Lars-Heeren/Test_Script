@@ -19,8 +19,10 @@ class NavigationBarTests(TestClass):
     def test_navigationbar_buttons(self):
         links = []
         #door iedere link gaan en kijken of er iets veranderd qua url
-        for elem in self.driver.find_elements_by_css_selector(".links li a"):
+        for elem in self.driver.find_elements_by_css_selector("nav li a"):
+            elem.click()
             text = elem.text
-            print(text)
+            #print(text)
             links.append(text)
+
         return True
