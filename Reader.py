@@ -3,7 +3,9 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+from test.CarrouselTests import CarrouselTests
 from test.NavigationBarTests import NavigationBarTests
+from test.NewProjectsTests import NewProjectsTests
 
 CHROME_DRIVER = "\\chromedriver.exe"
 CHROME_PATH = os.path.dirname(os.path.abspath(__file__)) + "\\chrome"
@@ -33,8 +35,8 @@ class Reader:
         tests = []
 
         tests.append(NavigationBarTests(self.driver))
-        #tests.append(CarrouselTests(self.driver))
-        #tests.append(NewProjectsTests(self.driver))
+        tests.append(CarrouselTests(self.driver))
+        tests.append(NewProjectsTests(self.driver))
 
         for test in tests:
             test.run_tests()
