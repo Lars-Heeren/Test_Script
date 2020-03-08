@@ -4,7 +4,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from test.CarrouselTests import CarrouselTests
-from test.MapTests import MapTests
 from test.NavigationBarTests import NavigationBarTests
 from test.NewProjectsTests import NewProjectsTests
 
@@ -35,10 +34,9 @@ class Reader:
     def test_application(self):
         tests = []
 
-        # tests.append(NavigationBarTests(self.driver))
-        # tests.append(CarrouselTests(self.driver))
-        # tests.append(NewProjectsTests(self.driver))
-        tests.append(MapTests(self.driver))
+        tests.append(NavigationBarTests(self.driver))
+        tests.append(CarrouselTests(self.driver))
+        tests.append(NewProjectsTests(self.driver))
 
         for test in tests:
             test.run_tests()

@@ -12,7 +12,6 @@ class NavigationBarTests(TestClass):
     def run_tests(self):
         self.tests["test_navigationbar_home"] = self.test_navigationbar_home()
         self.tests["test_navigationbar_projects"] = self.test_navigationbar_projects()
-        self.tests["test_navigationbar_map"] = self.test_navigationbar_map()
         self.print_result()
 
     def test_navigationbar_home(self):
@@ -34,19 +33,6 @@ class NavigationBarTests(TestClass):
         try:
             element = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "Projecten"))
-            )
-        finally:
-            element.click()
-            self.passit = current_url != self.driver.current_url
-            self.driver.back()
-        return True
-
-    def test_navigationbar_map(self):
-        current_url = self.driver.current_url
-
-        try:
-            element = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.LINK_TEXT, "Map"))
             )
         finally:
             element.click()
