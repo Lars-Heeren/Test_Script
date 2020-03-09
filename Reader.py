@@ -2,6 +2,7 @@ import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.common import exceptions
 
 from test.CarrouselTests import CarrouselTests
 from test.MapTests import MapTests
@@ -18,7 +19,16 @@ class Reader:
         options = Options()
         self.driver = webdriver.Chrome(executable_path=CHROME_PATH + CHROME_DRIVER, options=options)
         self.driver.get(APPLICATION_ADDRESS_STRING)
-        self.run_tests()
+
+        timesTry = 0
+
+        while timesTry <= 5:
+            try:
+                self.run_tests()
+                break;
+            except exceptions.JavascriptException:
+                timesTry += 1
+                print(timesTry)
         self.driver.quit()
 
     def run_tests(self):
