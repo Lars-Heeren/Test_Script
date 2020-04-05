@@ -3,9 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
+import time
 
 from test.TestClass import TestClass
-import time
 
 class ListTests(TestClass):
     def __init__(self, driver, name="List"):
@@ -74,11 +74,13 @@ class ListTests(TestClass):
             action.move_to_element(firstLevelMenu).perform()
             secondLevelMenu.send_keys("03182020")
             action.click(thirdLevelMenu).perform()
+
+            time.sleep(4)
             
         except TimeoutException:
             return False
         finally:
-            return "CreatedAfter=2020-03-18" in self.driver.current_url
+            return "CreatedAfter=2020-12-03" in self.driver.current_url
 
     def test_created_before(self):
         self.driver.get("http://localhost:8000/projecten/lijst")
@@ -96,15 +98,17 @@ class ListTests(TestClass):
                 EC.presence_of_element_located((By.ID, "filterSubmit"))
             )
 
-
             action.move_to_element(firstLevelMenu).perform()
             secondLevelMenu.send_keys("03312020")
             action.click(thirdLevelMenu).perform()
+
+            time.sleep(4)
             
         except TimeoutException:
             return False
         finally:
-            return "CreatedBefore=2020-03-31" in self.driver.current_url
+            print(self.driver.current_url)
+            return "CreatedBefore=12020-03-03" in self.driver.current_url
 
     def test_category(self):
         self.driver.get("http://localhost:8000/projecten/lijst")
