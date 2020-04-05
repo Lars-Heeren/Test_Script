@@ -107,7 +107,6 @@ class ListTests(TestClass):
         except TimeoutException:
             return False
         finally:
-            print(self.driver.current_url)
             return "CreatedBefore=12020-03-03" in self.driver.current_url
 
     def test_category(self):
