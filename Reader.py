@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common import exceptions
 
+from test.LoginTests import LoginTests
 from test.CarrouselTests import CarrouselTests
 from test.MapTests import MapTests
 from test.NavigationBarTests import NavigationBarTests
@@ -35,6 +36,7 @@ class Reader:
     def run_tests(self):
         tests = []
 
+        tests.append(LoginTests(self.driver))
         tests.append(EditProjectTests(self.driver))
 
         # tests.append(NavigationBarTests(self.driver))
