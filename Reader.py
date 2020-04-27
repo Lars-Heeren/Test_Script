@@ -9,6 +9,7 @@ from test.MapTests import MapTests
 from test.NavigationBarTests import NavigationBarTests
 from test.NewProjectsTests import NewProjectsTests
 from test.EditProjectTest import EditProjectTests
+from test.ListTests import ListTests
 
 CHROME_DRIVER = "\\chromedriver.exe"
 CHROME_PATH = os.path.dirname(os.path.abspath(__file__)) + "\\chrome"
@@ -41,7 +42,7 @@ class Reader:
         # tests.append(CarrouselTests(self.driver))
         # tests.append(NewProjectsTests(self.driver))
         # tests.append(MapTests(self.driver))
-        #
+        # tests.append(ListTests(self.driver))
 
         for test in tests:
             test.run()
