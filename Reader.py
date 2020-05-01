@@ -10,6 +10,8 @@ from test.NavigationBarTests import NavigationBarTests
 from test.NewProjectsTests import NewProjectsTests
 from test.EditProjectTest import EditProjectTests
 from test.ListTests import ListTests
+from test.LoginTest import LoginTest
+from test.AddProjectTest import AddProjectTest
 
 CHROME_DRIVER = "\\chromedriver.exe"
 CHROME_PATH = os.path.dirname(os.path.abspath(__file__)) + "\\chrome"
@@ -36,7 +38,9 @@ class Reader:
     def run_tests(self):
         tests = []
 
-        tests.append(EditProjectTests(self.driver))
+        tests.append(LoginTest(self.driver))
+        tests.append(AddProjectTest(self.driver))
+        # tests.append(EditProjectTests(self.driver))
 
         # tests.append(NavigationBarTests(self.driver))
         # tests.append(CarrouselTests(self.driver))
