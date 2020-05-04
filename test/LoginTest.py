@@ -16,8 +16,6 @@ class LoginTest(TestClass):
         super().run()
 
     def login(self):
-        print('im running')
-
         link = self.driver.find_element_by_css_selector('ul.login_search li a')
         link.click()
         time.sleep(3)
