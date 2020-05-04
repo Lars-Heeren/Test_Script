@@ -8,7 +8,7 @@ from Utilities.DataBase import DataBase
 
 
 class AddProjectTest(TestClass):
-    def __init__(self, driver, name="EditProject"):
+    def __init__(self, driver, name="AddProject"):
         super().__init__(driver, name)
         self.elements = []
 
@@ -22,26 +22,19 @@ class AddProjectTest(TestClass):
         test_data = RandomStringGenerator().getRandomString(20)
 
         time.sleep(3)
-        try:
-            self.driver.find_element_by_name("title").send_keys(test_data)
-            self.driver.find_element_by_name("about").send_keys(test_data)
-            self.driver.find_element_by_name("description").send_keys(test_data)
-            self.driver.find_element_by_name("image_link").send_keys(test_data)
-            self.driver.find_element_by_name("result_ac").send_keys(test_data)
-            self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
-            self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
-            self.driver.find_element_by_name("locations[]").find_elements_by_tag_name('option')[0].click()
-            self.driver.find_element_by_id("1").click()
-            self.driver.find_element_by_css_selector("label[for='sdgnumber1']").click()
-            self.driver.find_element_by_css_selector("button[type='submit']").click()
-
-            sql = "SELECT * FROM projects where title = '{}'".format(test_data)
-            result = DataBase.run_select_query(sql)
-            for row in result:
-                if row[1] == test_data:
-                    time.sleep(5)
-                    if self.driver.find_element_by_css_selector('h1').text == test_data:
-                        return True
-            return False
-        except:
-            return False
+        self.driver.find_element_by_name("title").send_keys(test_data)
+        self.driver.find_element_by_name("about").send_keys(test_data)
+        self.driver.find_element_by_name("description").send_keys(test_data)
+        self.driver.find_element_by_name("image_link").send_keys(test_data)
+        self.driver.find_element_by_name("result_ac").send_keys(test_data)
+        self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
+        self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
+        self.driver.find_element_by_name("locations[]").find_elements_by_tag_name('option')[0].click()
+        self.driver.find_element_by_name("organizations[]").find_elements_by_tag_name('option')[0].click()
+        self.driver.find_element_by_id("1").click()
+        self.driver.find_element_by_css_selector("label[for='sdgnumber1']").click()
+        self.driver.find_element_by_css_selector("button[type='submit']").click()
+        time.sleep(3)
+        if self.driver.find_element_by_css_selector('h1').text == test_data:
+            return True
+        return False
