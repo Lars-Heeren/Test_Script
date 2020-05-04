@@ -3,12 +3,15 @@ from test.TestClass import TestClass
 from selenium.webdriver.common.keys import Keys
 import time
 
+EXPECTED_URL = 'http://localhost:8000/home'
+
+
 class LoginTest(TestClass):
     def __init__(self, driver, name="Login"):
         super().__init__(driver, name)
 
     def run(self):
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("http://localhost:8000/login")
         self.tests["login"] = self.login()
         super().run()
 
@@ -25,8 +28,5 @@ class LoginTest(TestClass):
         submit = self.driver.find_element_by_css_selector('button')
         submit.click()
         time.sleep(3)
-        expectedURL = 'http://localhost:8000/home'
-        currentURL =  self.driver.current_url
-        print(expectedURL)
-        print(currentURL)
-        return expectedURL == currentURL
+
+        return EXPECTED_URL == self.driver.current_url
