@@ -36,6 +36,7 @@ class EditProjectTests(TestClass):
         self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
         self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
         self.driver.find_element_by_name("locations[]").find_elements_by_tag_name('option')[0].click()
+        self.driver.find_element_by_name("organizations[]").find_elements_by_tag_name('option')[1].click()
         self.driver.find_element_by_id("1").click()
         self.driver.find_element_by_css_selector("label[for='sdgnumber1']").click()
         self.driver.find_element_by_css_selector("button[type='submit']").click()

@@ -11,6 +11,7 @@ from test.MapTests import MapTests
 from test.NavigationBarTests import NavigationBarTests
 from test.NewProjectsTests import NewProjectsTests
 from test.EditProjectTest import EditProjectTests
+from test.ManageProjectsTests import ManageProjectsTests
 from test.ListTests import ListTests
 from test.LoginTest import LoginTest
 from test.AddProjectTest import AddProjectTest
@@ -49,6 +50,7 @@ class Reader:
         tests.append(NewProjectsTests(self.driver))
         tests.append(MapTests(self.driver))
         tests.append(ListTests(self.driver))
+        tests.append(ManageProjectsTests(self.driver))
 
         for test in tests:
             test.run()
