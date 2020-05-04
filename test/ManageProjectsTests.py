@@ -16,14 +16,14 @@ class ManageProjectsTests(TestClass):
         self.driver.get("http://localhost:8000/projecten/productowner/lijst")
         current_url = self.driver.current_url
 
-        element = self.driver.find_elements_by_css_selector('.list .listItem .edit-button-container #edit-button0 a')[0]
+        element = self.driver.find_elements_by_css_selector('.list li .edit-button-container #edit-button0 a')[0]
         element.click()
 
         return current_url != self.driver.current_url
 
     def setup_test_delete_project(self):
         self.driver.get("http://localhost:8000/projecten/productowner/lijst")
-        li_list = self.driver.find_elements_by_css_selector('.list .listItem')
+        li_list = self.driver.find_elements_by_css_selector('.list li')
 
         if len(li_list) > 0:
             return self.test_delete_project(li_list)
@@ -33,10 +33,10 @@ class ManageProjectsTests(TestClass):
     def test_delete_project(self, li_list):
         self.driver.get("http://localhost:8000/projecten/productowner/lijst")
 
-        element = self.driver.find_elements_by_css_selector('.list .listItem .edit-button-container #delete-button0 a')[0]
+        element = self.driver.find_elements_by_css_selector('.list li .edit-button-container #delete-button0 a')[0]
         element.click()
 
-        li_list_new = self.driver.find_elements_by_css_selector('.list .listItem')
+        li_list_new = self.driver.find_elements_by_css_selector('.list li')
         return len(li_list) != len(li_list_new)
 
     def test_add_project(self):
@@ -52,7 +52,7 @@ class ManageProjectsTests(TestClass):
         self.driver.get("http://localhost:8000/projecten/productowner/lijst")
         current_url = self.driver.current_url
 
-        element = self.driver.find_elements_by_css_selector('.list .listItem a')[0]
+        element = self.driver.find_elements_by_css_selector('.list li a')[0]
         element.click()
 
         return current_url != self.driver.current_url
