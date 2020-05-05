@@ -80,7 +80,7 @@ class ListTests(TestClass):
         except TimeoutException:
             return False
         finally:
-            return "CreatedAfter=2020-12-03" in self.driver.current_url
+            return "CreatedAfter=2020-03-18" in self.driver.current_url
 
     def test_created_before(self):
         self.driver.get("http://localhost:8000/projecten/lijst")
@@ -107,7 +107,7 @@ class ListTests(TestClass):
         except TimeoutException:
             return False
         finally:
-            return "CreatedBefore=12020-03-03" in self.driver.current_url
+            return "CreatedBefore=2020-03-31" in self.driver.current_url
 
     def test_category(self):
         self.driver.get("http://localhost:8000/projecten/lijst")
