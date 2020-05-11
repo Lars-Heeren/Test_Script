@@ -15,6 +15,7 @@ from test.ManageProjectsTests import ManageProjectsTests
 from test.ListTests import ListTests
 from test.LoginTest import LoginTest
 from test.AddProjectTest import AddProjectTest
+from test.ContactsTests import ContactsTests
 
 CHROME_DRIVER = "\\chromedriver.exe"
 CHROME_PATH = os.path.dirname(os.path.abspath(__file__)) + "\\chrome"
@@ -42,14 +43,15 @@ class Reader:
         tests = []
 
         tests.append(LoginTest(self.driver))
-        tests.append(AddProjectTest(self.driver))
-        tests.append(EditProjectTests(self.driver))
-        tests.append(NavigationBarTests(self.driver))
-        tests.append(CarrouselTests(self.driver))
-        tests.append(NewProjectsTests(self.driver))
-        tests.append(MapTests(self.driver))
-        tests.append(ListTests(self.driver))
-        tests.append(ManageProjectsTests(self.driver))
+        # tests.append(AddProjectTest(self.driver))
+        # tests.append(EditProjectTests(self.driver))
+        tests.append(ContactsTests(self.driver))
+        # tests.append(NavigationBarTests(self.driver))
+        # tests.append(CarrouselTests(self.driver))
+        # tests.append(NewProjectsTests(self.driver))
+        # tests.append(MapTests(self.driver))
+        # tests.append(ListTests(self.driver))
+        # tests.append(ManageProjectsTests(self.driver))
 
         for test in tests:
             test.run()

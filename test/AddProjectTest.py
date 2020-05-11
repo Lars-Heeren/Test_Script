@@ -10,7 +10,7 @@ class AddProjectTest(TestClass):
         self.elements = []
 
     def run(self):
-        self.driver.get("http://localhost:8000/projects/add")
+        self.driver.get("http://localhost:8000/projecten/projecteigenaar/toevoegen")
         self.tests["submit_complete"] = self.submit_complete()
         super().run()
 
@@ -66,7 +66,7 @@ class AddProjectTest(TestClass):
         url = self.driver.current_url
         urlParts = url.split('/')
         id = urlParts[len(urlParts) - 1]
-        self.driver.get("http://localhost:8000/projecten/productowner/lijst")
+        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
         search = self.driver.find_element_by_name("search")
         search.send_keys(testdata)
         search.send_keys(Keys.RETURN)
