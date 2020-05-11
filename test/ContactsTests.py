@@ -19,6 +19,7 @@ class ContactsTests(TestClass):
         element.click()
 
         self.tests["submit_complete_add"] = self.submit_complete_add()
+        self.tests["edit_Test"] = self.edit_Test()
         super().run()
 
     def submit_complete_add(self):
@@ -43,19 +44,51 @@ class ContactsTests(TestClass):
         self.driver.find_element_by_css_selector("button[type='submit']").click()
         time.sleep(3)
         result = False
-        table = self.driver.find_element_by_tag_name("td")
+        table = self.driver.find_elements_by_id("email")
         if isinstance(table, list):
-            value = table[len(table) - 7].getText()
-            print(value)
+            value = table[len(table) - 1].text
             if(value == "seleniumtest@gmail.com"):
                 result = True
         self.navigateToEdit(table)
         return result
 
     def navigateToEdit(self, table):
-        if isinstance(table, list):
-            table[len(table) - 2].click()
+        buttons = self.driver.find_elements_by_id("editContactButton")
+        buttons[len(buttons) - 1].click()
         time.sleep(2)
-        url = self.driver.current_url
 
+    def edit_Test(self):
+        time.sleep(1)
+        test_data_edit = RandomStringGenerator().getRandomString(20)
+        time.sleep(2)
 
+        self.driver.find_element_by_id("firstname").clear()
+        self.driver.find_element_by_id("lastname").clear()
+        self.driver.find_element_by_id("email").clear()
+        self.driver.find_element_by_id("address").clear()
+        self.driver.find_element_by_id("zipcode").clear()
+        self.driver.find_element_by_id("city").clear()
+        self.driver.find_element_by_id("web_link").clear()
+        time.sleep(2)
+        self.driver.find_element_by_id("firstname").send_keys(test_data_edit)
+        self.driver.find_element_by_id("lastname").send_keys(test_data_edit)
+        self.driver.find_element_by_id("email").send_keys("seleniumtestEdit@gmail.com")
+        self.driver.find_element_by_id("address").send_keys(test_data_edit)
+        self.driver.find_element_by_id("zipcode").send_keys(test_data_edit)
+        self.driver.find_element_by_id("city").send_keys(test_data_edit)
+        self.driver.find_element_by_id("web_link").send_keys(test_data_edit)
+        time.sleep(1)
+        self.driver.find_element_by_css_selector("button[type='submit']").click()
+        time.sleep(3)
+        result = False
+        table = self.driver.find_elements_by_id("email")
+        if isinstance(table, list):
+            value = table[len(table) - 1].text
+            if (value == "seleniumtestEdit@gmail.com"):
+                result = True
+        self.destroy_Contact()
+        return result
+
+    def destroy_Contact(self):
+        buttons = self.driver.find_elements_by_id("deleteContactButton")
+        buttons[len(buttons) - 1].click()

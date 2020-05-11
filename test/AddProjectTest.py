@@ -27,6 +27,8 @@ class AddProjectTest(TestClass):
         self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
         self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
 
+        self.driver.find_element_by_name("prac_vals[]").find_elements_by_tag_name("option")[0].click()
+
         self.driver.find_element_by_id("inputAddLocation").send_keys("Berlicum")
         self.driver.find_element_by_id("locationAdd").click()
         time.sleep(2)

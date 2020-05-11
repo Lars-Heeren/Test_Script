@@ -35,6 +35,8 @@ class EditProjectTests(TestClass):
         self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
         self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
 
+        self.driver.find_element_by_name("prac_vals[]").find_elements_by_tag_name("option")[1].click()
+
         self.driver.find_element_by_id("inputAddLocation").send_keys("Den Dungen")
         self.driver.find_element_by_id("locationAdd").click()
         time.sleep(2)
@@ -78,7 +80,7 @@ class EditProjectTests(TestClass):
         urlParts = url.split('/')
         id = urlParts[len(urlParts) - 1]
 
-        self.driver.get("http://localhost:8000/projecten/productowner/lijst")
+        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
 
         search = self.driver.find_element_by_name("search")
         search.send_keys(testdata)
