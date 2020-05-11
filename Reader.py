@@ -44,13 +44,13 @@ class Reader:
         tests.append(LoginTest(self.driver))
         tests.append(AddProjectTest(self.driver))
         tests.append(EditProjectTests(self.driver))
-
-        tests.append(NavigationBarTests(self.driver))
-        tests.append(CarrouselTests(self.driver))
-        tests.append(NewProjectsTests(self.driver))
-        tests.append(MapTests(self.driver))
-        tests.append(ListTests(self.driver))
-        tests.append(ManageProjectsTests(self.driver))
+        #
+        # tests.append(NavigationBarTests(self.driver))
+        # tests.append(CarrouselTests(self.driver))
+        # tests.append(NewProjectsTests(self.driver))
+        # tests.append(MapTests(self.driver))
+        # tests.append(ListTests(self.driver))
+        # tests.append(ManageProjectsTests(self.driver))
 
         for test in tests:
             test.run()
