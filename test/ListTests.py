@@ -72,7 +72,7 @@ class ListTests(TestClass):
 
 
             action.move_to_element(firstLevelMenu).perform()
-            secondLevelMenu.send_keys("03182020")
+            secondLevelMenu.send_keys("18032020")
             action.click(thirdLevelMenu).perform()
 
             time.sleep(4)
@@ -99,7 +99,7 @@ class ListTests(TestClass):
             )
 
             action.move_to_element(firstLevelMenu).perform()
-            secondLevelMenu.send_keys("03312020")
+            secondLevelMenu.send_keys("30062020")
             action.click(thirdLevelMenu).perform()
 
             time.sleep(4)
@@ -107,7 +107,7 @@ class ListTests(TestClass):
         except TimeoutException:
             return False
         finally:
-            return "CreatedBefore=2020-03-31" in self.driver.current_url
+            return "CreatedBefore=2020-06-30" in self.driver.current_url
 
     def test_category(self):
         self.driver.get("http://localhost:8000/projecten/lijst")
@@ -118,13 +118,12 @@ class ListTests(TestClass):
             )
 
             secondLevelMenu = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "//select[@id='status']/option[text()='Gaande']"))
+                EC.presence_of_element_located((By.XPATH, "//select[@id='status[]']/option[text()='Gaande']"))
             )
 
             thirdLevelMenu = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.ID, "filterSubmit"))
             )
-
 
             action.move_to_element(firstLevelMenu).perform()
             action.click(secondLevelMenu).perform()
