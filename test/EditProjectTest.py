@@ -23,13 +23,19 @@ class EditProjectTests(TestClass):
             time.sleep(3)
             self.driver.find_element_by_name("title").clear()
             self.driver.find_element_by_name("about").clear()
-            self.driver.find_element_by_name("description").clear()
+            self.driver.find_element_by_id("tinymce").clear()
             self.driver.find_element_by_name("image_link").clear()
             self.driver.find_element_by_name("result_ac").clear()
 
             self.driver.find_element_by_name("title").send_keys(test_data)
             self.driver.find_element_by_name("about").send_keys(test_data)
-            self.driver.find_element_by_name("description").send_keys(test_data)
+
+            # tinymce start
+            self.driver.switch_to.frame(self.driver.find_element_by_css_selector("iframe"))
+            self.driver.find_element_by_css_selector("#tinymce").send_keys(test_data)
+            self.driver.switch_to.default_content()
+            # tinymce end
+
             self.driver.find_element_by_name("image_link").send_keys(test_data)
             self.driver.find_element_by_name("result_ac").send_keys(test_data)
             self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
