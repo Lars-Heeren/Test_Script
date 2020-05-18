@@ -19,28 +19,28 @@ class NewProjectsTests(TestClass):
         super().run()
 
     def test_newprojects1_link(self):
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("http://projectagile.nl/")
         current_url = self.driver.current_url
         element = self.driver.find_elements_by_css_selector(".new_project_container a")[0]
         element.click()
         return current_url != self.driver.current_url
 
     def test_newprojects2_link(self):
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("http://projectagile.nl/")
         current_url = self.driver.current_url
         element = self.driver.find_elements_by_css_selector(".new_project_container a")[1]
         element.click()
         return current_url != self.driver.current_url
 
     def test_newprojects3_link(self):
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("http://projectagile.nl/")
         current_url = self.driver.current_url
         element = self.driver.find_elements_by_css_selector(".new_project_container a")[2]
         element.click()
         return current_url != self.driver.current_url
 
     def test_newprojects4_link(self):
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("http://projectagile.nl/")
         current_url = self.driver.current_url
         element = self.driver.find_elements_by_css_selector(".new_project_container a")[3]
         element.click()

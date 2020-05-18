@@ -20,7 +20,7 @@ class ListTests(TestClass):
         super().run()
 
     def test_searchbar(self):
-        self.driver.get("http://localhost:8000/projecten/lijst")
+        self.driver.get("http://projectagile.nl/projecten/lijst")
         try:
             element = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.NAME, "search"))
@@ -32,7 +32,7 @@ class ListTests(TestClass):
             return "search=oirschot" in self.driver.current_url
 
     def test_showcased(self):
-        self.driver.get("http://localhost:8000/projecten/lijst")
+        self.driver.get("http://projectagile.nl/projecten/lijst")
         action = ActionChains(self.driver)
         try:
             firstLevelMenu = WebDriverWait(self.driver, 10).until(
@@ -55,7 +55,7 @@ class ListTests(TestClass):
             return "Showcased=on" in self.driver.current_url
 
     def test_created_after(self):
-        self.driver.get("http://localhost:8000/projecten/lijst")
+        self.driver.get("http://projectagile.nl/projecten/lijst")
         action = ActionChains(self.driver)
         try:
             firstLevelMenu = WebDriverWait(self.driver, 10).until(
@@ -83,7 +83,7 @@ class ListTests(TestClass):
             return "CreatedAfter=2020-03-18" in self.driver.current_url
 
     def test_created_before(self):
-        self.driver.get("http://localhost:8000/projecten/lijst")
+        self.driver.get("http://projectagile.nl/projecten/lijst")
         action = ActionChains(self.driver)
         try:
             firstLevelMenu = WebDriverWait(self.driver, 10).until(
@@ -110,7 +110,7 @@ class ListTests(TestClass):
             return "CreatedBefore=2020-06-30" in self.driver.current_url
 
     def test_category(self):
-        self.driver.get("http://localhost:8000/projecten/lijst")
+        self.driver.get("http://projectagile.nl/projecten/lijst")
         action = ActionChains(self.driver)
         try:
             firstLevelMenu = WebDriverWait(self.driver, 10).until(

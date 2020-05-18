@@ -3,7 +3,7 @@ from test.TestClass import TestClass
 from selenium.webdriver.common.keys import Keys
 import time
 
-EXPECTED_URL = 'http://localhost:8000/home'
+EXPECTED_URL = 'http://projectagile.nl/home'
 
 
 class LoginTest(TestClass):
@@ -11,7 +11,7 @@ class LoginTest(TestClass):
         super().__init__(driver, name)
 
     def run(self):
-        self.driver.get("http://localhost:8000/login")
+        self.driver.get("http://projectagile.nl/login")
         self.tests["login"] = self.login()
         super().run()
 

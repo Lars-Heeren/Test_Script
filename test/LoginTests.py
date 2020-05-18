@@ -9,7 +9,7 @@ class LoginTests(TestClass):
         super().__init__(driver, name)
 
     def run(self):
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("http://projectagile.nl/")
         self.tests["test_login"] = self.test_login()
         super().run()
 
@@ -26,6 +26,6 @@ class LoginTests(TestClass):
         submit = self.driver.find_element_by_css_selector('button')
         submit.click()
         time.sleep(3)
-        expectedURL = 'http://localhost:8000/home'
+        expectedURL = 'http://projectagile.nl/home'
         currentURL = self.driver.current_url
         return expectedURL == currentURL
