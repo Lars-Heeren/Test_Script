@@ -19,6 +19,7 @@ class AddProjectTest(TestClass):
             test_data = RandomStringGenerator().getRandomString(20)
 
             time.sleep(3)
+
             self.driver.find_element_by_name("title").send_keys(test_data)
             self.driver.find_element_by_name("about").send_keys(test_data)
 

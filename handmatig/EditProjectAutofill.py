@@ -2,7 +2,7 @@ from Utilities.RandomStringGenerator import RandomStringGenerator
 from handmatig.AutoFill import AutoFill
 
 
-class AddProjectAutofill(AutoFill):
+class EditProjectAutofill(AutoFill):
 
     def __init__(self):
         super().__init__()
@@ -10,7 +10,7 @@ class AddProjectAutofill(AutoFill):
 
     def autoFill(self):
         print('test')
-        self.driver.get("http://localhost:8000/projecten/toevoegen")
+        self.driver.get("http://localhost:8000/projecten/wijzigen/1")
 
         test_data = RandomStringGenerator().getRandomString(20)
 
@@ -27,6 +27,7 @@ class AddProjectAutofill(AutoFill):
         self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
         self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
 
+        self.driver.find_element_by_name("prac_vals[]").find_elements_by_tag_name("option")[1].click()
         self.driver.find_element_by_name("prac_vals[]").find_elements_by_tag_name("option")[0].click()
 
         self.driver.find_element_by_id("display-label-box").click()
@@ -44,4 +45,4 @@ class AddProjectAutofill(AutoFill):
         input("press any key to continue...")
 
 
-AddProjectAutofill()
+EditProjectAutofill()
