@@ -13,7 +13,7 @@ class CarrouselTests(TestClass):
         super().run()
 
     def test_next_button(self):
-        self.driver.get("http://projectagile.nl/")
+        self.driver.get("http://localhost:8000/")
         button = self.driver.find_element_by_id("next")
         img1 = self.driver.find_element_by_css_selector(".primary_project img")
         frontimg = self.driver.find_element_by_class_name("primary_project")
@@ -29,7 +29,7 @@ class CarrouselTests(TestClass):
         return img1 != img2
 
     def test_back_button(self):
-        self.driver.get("http://projectagile.nl/")
+        self.driver.get("http://localhost:8000/")
         button = self.driver.find_element_by_id("previous")
         img1 = self.driver.find_element_by_css_selector(".primary_project img")
         frontimg = self.driver.find_element_by_class_name("primary_project")

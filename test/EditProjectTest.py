@@ -89,7 +89,7 @@ class EditProjectTests(TestClass):
         urlParts = url.split('/')
         id = urlParts[len(urlParts) - 1]
 
-        self.driver.get("http://projectagile.nl/projecten/projecteigenaar/lijst")
+        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
 
         search = self.driver.find_element_by_name("search")
         search.send_keys(testdata)

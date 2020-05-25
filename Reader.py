@@ -20,7 +20,7 @@ from test.PasswordResetTests import PasswordResetTests
 
 CHROME_DRIVER = "\\chromedriver.exe"
 CHROME_PATH = os.path.dirname(os.path.abspath(__file__)) + "\\chrome"
-APPLICATION_ADDRESS_STRING = " http://projectagile.nl"
+APPLICATION_ADDRESS_STRING = " http://127.0.0.1:8000"
 
 
 class Reader:

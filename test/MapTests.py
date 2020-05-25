@@ -16,7 +16,7 @@ class MapTests(TestClass):
         super().run()
 
     def test_listbutton(self):
-        self.driver.get("http://projectagile.nl/projecten/kaart")
+        self.driver.get("http://localhost:8000/projecten/kaart")
         current_url = self.driver.current_url
         try:
             element = WebDriverWait(self.driver, 10).until(
@@ -29,7 +29,7 @@ class MapTests(TestClass):
             return current_url != self.driver.current_url
 
     def test_mapbutton(self):
-        self.driver.get("http://projectagile.nl/projecten/lijst")
+        self.driver.get("http://localhost:8000/projecten/lijst")
         current_url = self.driver.current_url
         try:
             element = WebDriverWait(self.driver, 10).until(

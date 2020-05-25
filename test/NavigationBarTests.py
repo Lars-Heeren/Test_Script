@@ -16,7 +16,7 @@ class NavigationBarTests(TestClass):
         super().run()
 
     def test_homebutton(self):
-        self.driver.get("http://projectagile.nl/")
+        self.driver.get("http://localhost:8000/")
         current_url = self.driver.current_url
         try:
             element = WebDriverWait(self.driver, 10).until(
@@ -29,7 +29,7 @@ class NavigationBarTests(TestClass):
             return current_url != self.driver.current_url
 
     def test_projectsbutton(self):
-        self.driver.get("http://projectagile.nl/")
+        self.driver.get("http://localhost:8000/")
         current_url = self.driver.current_url
         try:
             element = WebDriverWait(self.driver, 10).until(
