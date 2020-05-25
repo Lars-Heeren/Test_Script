@@ -41,9 +41,17 @@ class Reader:
         self.driver.quit()
 
     def run_tests(self):
+        run = False;
+        port80 = input("hosting on port 80 yes/no");
+        if port80 == "yes":
+            run = True;
+
+
+
         tests = []
 
-        tests.append(PasswordResetTests(self.driver))
+        if run:
+            tests.append(PasswordResetTests(self.driver))
         tests.append(LoginTest(self.driver))
         tests.append(AddProjectTest(self.driver))
         tests.append(EditProjectTests(self.driver))
