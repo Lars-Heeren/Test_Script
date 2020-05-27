@@ -13,7 +13,7 @@ class ManageProjectsTests(TestClass):
         super().run()
 
     def test_edit_project(self):
-        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
+        self.driver.get("http://localhost:8000/projecten/lijst")
         current_url = self.driver.current_url
 
         element = self.driver.find_elements_by_css_selector('.list li .edit-button-container #edit-button0 a')[0]
@@ -22,7 +22,7 @@ class ManageProjectsTests(TestClass):
         return current_url != self.driver.current_url
 
     def setup_test_delete_project(self):
-        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
+        self.driver.get("http://localhost:8000/projecten/lijst")
         li_list = self.driver.find_elements_by_css_selector('.list li')
 
         if len(li_list) > 0:
@@ -31,7 +31,7 @@ class ManageProjectsTests(TestClass):
             return True
 
     def test_delete_project(self, li_list):
-        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
+        self.driver.get("http://localhost:8000/projecten/lijst")
 
         element = self.driver.find_elements_by_css_selector('.list li .edit-button-container #delete-button0 a')[0]
         element.click()
@@ -40,7 +40,7 @@ class ManageProjectsTests(TestClass):
         return len(li_list) != len(li_list_new)
 
     def test_add_project(self):
-        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
+        self.driver.get("http://localhost:8000/projecten/lijst")
         current_url = self.driver.current_url
 
         element = self.driver.find_elements_by_css_selector('div>div .add-button a')[0]
@@ -49,7 +49,7 @@ class ManageProjectsTests(TestClass):
         return current_url != self.driver.current_url
 
     def test_click_project(self):
-        self.driver.get("http://localhost:8000/projecten/projecteigenaar/lijst")
+        self.driver.get("http://localhost:8000/projecten/lijst")
         current_url = self.driver.current_url
 
         element = self.driver.find_elements_by_css_selector('.list li a')[0]
