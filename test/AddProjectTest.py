@@ -1,3 +1,6 @@
+import sys
+
+from selenium import webdriver
 from Utilities.RandomStringGenerator import RandomStringGenerator
 from test.TestClass import TestClass
 from selenium.webdriver.common.keys import Keys
@@ -10,7 +13,7 @@ class AddProjectTest(TestClass):
         self.elements = []
 
     def run(self):
-        self.driver.get("http://localhost:8000/projecten/projecteigenaar/toevoegen")
+        self.driver.get("http://localhost:8000/projecten/toevoegen")
         self.tests["submit_complete"] = self.submit_complete()
         super().run()
 
@@ -29,7 +32,9 @@ class AddProjectTest(TestClass):
             self.driver.switch_to.default_content()
             # tinymce end
 
-            self.driver.find_element_by_name("image_link").send_keys(test_data)
+            input("select image and press any key to continue...")
+            print('', end="\r")
+
             self.driver.find_element_by_name("result_ac").send_keys(test_data)
             self.driver.find_element_by_name("startdate").send_keys("10/10/2010")
             self.driver.find_element_by_name("enddate").send_keys("15/15/2015")
@@ -61,6 +66,7 @@ class AddProjectTest(TestClass):
 
             self.driver.find_element_by_id("1").click()
             self.driver.find_element_by_css_selector("label[for='sdgnumber1']").click()
+
             self.driver.find_element_by_css_selector("button[type='submit']").click()
             time.sleep(3)
 
@@ -69,6 +75,7 @@ class AddProjectTest(TestClass):
                 result = True
 
             self.clearData(test_data)
+
         except:
             result = False
 
@@ -84,4 +91,6 @@ class AddProjectTest(TestClass):
         search.send_keys(Keys.RETURN)
         time.sleep(2)
         self.driver.find_element_by_id("edit-button0").click()
+
+
 
